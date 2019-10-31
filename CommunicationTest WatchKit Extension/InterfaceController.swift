@@ -44,7 +44,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         messageLabel.setText("\(message["course"] as! String)")
         
         nameLabel.setText("Give the pokemon a name!")
-        
         pokemonImageView.setImageNamed("\(message["selection"] as! String)")
     }
     
