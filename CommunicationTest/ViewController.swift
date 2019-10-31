@@ -10,6 +10,9 @@ import UIKit
 import WatchConnectivity
 
 class ViewController: UIViewController, WCSessionDelegate  {
+    
+    var hunger = 80
+    var health = 95
 
     // MARK: Outlets
     @IBOutlet weak var outputLabel: UITextView!
@@ -106,7 +109,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
         
         // 2. selecting pokemon
         if (WCSession.default.isReachable) {
-            let message = ["course": " ","selection":"pikachu"]
+            let message = ["course": " ","selection":"pikachu","health":"\(self.health)","hunger":"\(self.hunger)"]
             WCSession.default.sendMessage(message, replyHandler: nil)
             // output a debug message to the UI
             outputLabel.insertText("\nMessage sent to watch")
@@ -123,7 +126,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
         
         // 3. selecting caterpie
         if (WCSession.default.isReachable) {
-            let message = ["course": " ","selection":"caterpie"]
+            let message = ["course": " ","selection":"caterpie","health":"\(self.health)","hunger":"\(self.hunger)"]
             WCSession.default.sendMessage(message, replyHandler: nil)
             // output a debug message to the UI
             outputLabel.insertText("\nMessage sent to watch")
