@@ -123,7 +123,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
         
         // 3. selecting caterpie
         if (WCSession.default.isReachable) {
-            let message = ["course": "MADT","selection":"caterpie"]
+            let message = ["course": " ","selection":"caterpie"]
             WCSession.default.sendMessage(message, replyHandler: nil)
             // output a debug message to the UI
             outputLabel.insertText("\nMessage sent to watch")

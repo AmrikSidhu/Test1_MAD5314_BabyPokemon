@@ -28,7 +28,7 @@
                         </group>
                         <imageView width="47" height="47" alignment="center" image="pokeball" id="RxI-YZ-AgM"/>
                         <label alignment="center" text="Albert is hungry" id="QdJ-Fj-LrR">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                            <fontDescription key="font" type="system" pointSize="10"/>
                         </label>
                         <group width="1" alignment="left" id="zVJ-eg-oyl">
                             <items>
