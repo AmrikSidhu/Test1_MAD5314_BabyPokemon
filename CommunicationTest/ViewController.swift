@@ -111,7 +111,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
             // output a debug message to the UI
             outputLabel.insertText("\nMessage sent to watch")
             // output a debug message to the console
-            print("Message sent to watch")
+            //print("Message sent to watch")
         }
         else {
             print("PHONE: Cannot reach watch")
@@ -128,7 +128,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
             // output a debug message to the UI
             outputLabel.insertText("\nMessage sent to watch")
             // output a debug message to the console
-            print("Message sent to watch")
+           // print("Message sent to watch")
         }
         else {
             print("PHONE: Cannot reach watch")
