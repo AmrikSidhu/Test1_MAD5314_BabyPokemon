@@ -43,7 +43,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
         messageLabel.setText("\(message["course"] as! String)")
         
-        nameLabel.setText("Give the pokemon a name!")
+        messageLabel.setText("Give the pokemon a name!")
         pokemonImageView.setImageNamed("\(message["selection"] as! String)")
     }
     
@@ -110,6 +110,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     // MARK: Functions for Pokemon Parenting
     @IBAction func nameButtonPressed() {
         print("name button pressed")
+        
+        
+            if (WCSession.default.isReachable) {
+                let message = ["selection":"\(String(describing: pokemonImageView))"]
+                WCSession.default.sendMessage(message, replyHandler: nil)
+               
+                
+            }
+            else {
+                print("PHONE: Cannot reach watch")
+            
+            
+        }
     }
 
     @IBAction func startButtonPressed() {
@@ -125,3 +138,4 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
 }
+

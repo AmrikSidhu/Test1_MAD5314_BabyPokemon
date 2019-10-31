@@ -10,7 +10,9 @@ import Foundation
 import WatchKit
 import WatchConnectivity
 
+@available(watchOSApplicationExtension 6.0, *)
 class Screen2Sample: WKInterfaceController, WCSessionDelegate {
+
     
     // MARK: Outlets
     // ---------------------
@@ -18,8 +20,10 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     // 1. Outlet for the image view
     @IBOutlet var pokemonImageView: WKInterfaceImage!
     
+    @IBOutlet var pokemonName: WKInterfaceTextField!
+    
     // 2. Outlet for the label
-    @IBOutlet var nameLabel: WKInterfaceLabel!
+   
     
     // MARK: Delegate functions
     // ---------------------
@@ -28,6 +32,17 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         //@TODO
     }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+           print("WATCH: Got message from Phone")
+           // Message from phone comes in this format: ["course":"MADT"]
+           //let messageBody = message["course"] as! String
+           
+          // messageLabel.setText("Give the pokemon a name!")
+           pokemonImageView.setImageNamed("\(message["selection"] as! String)")
+        print("\(message["selection"] as! String)")
+       }
+    
     
     // MARK: WatchKit Interface Controller Functions
     // ----------------------------------
@@ -59,13 +74,27 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     
     // MARK: Actions
     @IBAction func startButtonPressed() {
+        var name:String!
+        name = "Pokemon"
         print("Start button pressed")
+        
+        if (WCSession.default.isReachable) {
+            let message = ["course": "\(String(describing: name))",]
+                   WCSession.default.sendMessage(message, replyHandler: nil)
+                  
+            print(message["name"]!)
+               }
+               else {
+                   print("PHONE: Cannot reach watch")
+                
+               }
     }
     
     
     @IBAction func selectNameButtonPressed() {
         print("select name button pressed")
     }
+    
     
 
 }

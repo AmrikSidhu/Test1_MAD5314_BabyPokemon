@@ -22,7 +22,7 @@
                                     </connections>
                                 </button>
                                 <label height="20" alignment="left" text="Label" numberOfLines="2" id="PMJ-75-bao">
-                                    <fontDescription key="font" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                    <fontDescription key="font" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
                                 </label>
                             </items>
                         </group>
@@ -37,6 +37,7 @@
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                     <connections>
                                         <action selector="nameButtonPressed" destination="AgC-eL-Hgc" id="eHT-Ns-0Sz"/>
+                                        <segue destination="TKJ-vR-82D" kind="push" id="51v-0h-3lL"/>
                                     </connections>
                                 </button>
                                 <button alignment="center" title="S" id="kff-c9-AJG">
@@ -87,23 +88,24 @@
                                 <action selector="selectNameButtonPressed" destination="TKJ-vR-82D" id="PWX-4J-nLv"/>
                             </connections>
                         </button>
-                        <imageView alignment="center" id="YVj-81-CS0"/>
-                        <label alignment="left" text="Label" id="hsS-ha-cvx"/>
+                        <imageView alignment="center" image="pokeball" id="YVj-81-CS0"/>
+                        <textField width="123" height="18" alignment="left" text="Text" id="Ws6-JI-TGs"/>
                         <button width="1" alignment="left" title="Start" id="pBg-zB-rVo">
                             <color key="titleColor" red="0.31372549020000001" green="0.27450980390000002" blue="0.34509803919999998" alpha="1" colorSpace="deviceRGB"/>
                             <color key="backgroundColor" red="1" green="0.9385274106" blue="0.23414020229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="startButtonPressed" destination="TKJ-vR-82D" id="yIB-Vl-PdC"/>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="oX4-tk-ebm"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
-                        <outlet property="nameLabel" destination="hsS-ha-cvx" id="UZr-zS-n0S"/>
                         <outlet property="pokemonImageView" destination="YVj-81-CS0" id="xZn-R5-7aP"/>
+                        <outlet property="pokemonName" destination="Ws6-JI-TGs" id="zOX-NA-cwT"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="562" y="382"/>
+            <point key="canvasLocation" x="562" y="363"/>
         </scene>
     </scenes>
     <resources>
