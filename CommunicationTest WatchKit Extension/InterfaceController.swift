@@ -12,7 +12,15 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
+    var hungLevel = 0
+    var healthLevel = 100
     
+    
+    
+    let date = Date()
+    let calendar = Calendar.current
+   // let seconds = calendar.date(bySettingHour: <#T##Int#>, minute: <#T##Int#>, second: <#T##Int#>, of: <#T##Date#>)
+
     // MARK: Outlets
     // ---------------------
     @IBOutlet var messageLabel: WKInterfaceLabel!
@@ -46,6 +54,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         messageLabel.setText("Give the pokemon a name!")
         pokemonImageView.setImageNamed("\(message["selection"] as! String)")
         outputLabel.setText("Health: \(message["health"] as! String) Hunger: \(message["hunger"] as! String)")
+        self.hunger()
     }
     
 
@@ -136,6 +145,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func hibernateButtonPressed() {
         print("Hibernate button pressed")
+    }
+    
+
+    func hunger()
+    {
+        if(self.healthLevel >= 80 && self.healthLevel <= 99)
+        {
+            self.nameLabel.setText("Pokemon is hungry!!!")
+        }
+        else{
+            
+            self.nameLabel.setText("Pokemon is not hungry!")
+        }
     }
     
 }
